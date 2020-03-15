@@ -72,8 +72,8 @@ def usage():
     # Let people know the mode and how to switch it
     print('Hello (.... . .-.. .-.. ---)\n')
     print('There are two modes; Text to Code and Code to Text. The mode is indicated by the prompt.')
-    print('The \'TEXT:\' prompt indicates that text will be converted to Morse Code.')
-    print('The \'CODE:\' pronpt indicates that code will be converted to text.')
+    print('The \'Text:\' prompt indicates that text will be converted to Morse Code.')
+    print('The \'Code:\' pronpt indicates that code will be converted to text.')
     print('')
     print('The mode is set by entering \'<\' or \'>\'.')
     print(' \'<\' sets the mode to "Code to Text"')
