@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 
-# Dictionsry of characters to Morse Code strings
+print('MorseConvert - Copyright 2020 Allen Silky\n')
+# Licensed under GNU AGPL. See 'COPYING' file for license.
+
+
+# Dictionsry of text characters to Morse Code strings
 t2c = {'A':'.-', 
        'B':'-...', 
        'C':'-.-.', 
@@ -44,8 +48,7 @@ t2c = {'A':'.-',
        '@':'.--.-.'}
 
 # Create the code to text dictionary
-# Build this in Morse learning order so the printed list 
-# is dots to dashes.
+# Build this in Morse learning order so the printed list helps people learn. 
 c2t = {}
 morseLearnText = 'EAWJ1PRLIU2FSV3H45TMO098GQZ7NKYCDXB6.,?/@'
 for letter in morseLearnText:
@@ -53,12 +56,13 @@ for letter in morseLearnText:
     # Create code to text dictionary
     c2t[code] = letter
 
+
 def printCodeList():
-    print('Text to Morse Code table:')
+    print('Text to Morse Code:')
     for letter in t2c:
         code = t2c[letter]
         print(letter + '\t' + code)
-    print('\nMorse Code to Text table')
+    print('\nMorse Code to Text')
     for code in c2t:
         print(code + '\t' + c2t[code])
     print('')
@@ -83,19 +87,22 @@ def usage():
     print('Entering \'?\' on a line by itself will display this help message.')
     print('Entering \'!\' on a line by itself will display the text to code and code to text list.')
 
+
 def printt(text):
     print(text, end='')
+
 
 def getPrompt(textInput, linePerCharMode):
     prompt = ''
     if textInput:
-        prompt = 'TEXT'
+        prompt = 'Text'
     else:
-        prompt = 'CODE'
+        prompt = 'Code'
     if linePerCharMode:
         prompt = prompt + '+'
     prompt = prompt + ': '
     return prompt
+
 
 def textToCode(text, linePerCharMode):
     for c in text:
@@ -109,6 +116,7 @@ def textToCode(text, linePerCharMode):
         else:
             printt(mc + ' ')
     print('\n')
+
 
 def codeToText(code, linePerCharMode):
     codeWords = userInput.split('  ')
@@ -126,13 +134,15 @@ def codeToText(code, linePerCharMode):
                 printt(letter)
     print('\n')
 
-# Print the text-code and code-text lists and the usage.
+# Start by printing the text-code and code-text lists and the usage.
 printCodeList()
 usage()
 textInput = True
 linePerCharMode = False
 prompt = getPrompt(textInput, linePerCharMode)
 
+# Loop reading input lines from the user.
+# Process commands and if not a command, convert text-code/code-text.
 try:
     while True:
         userInput = input(prompt).strip().upper()
